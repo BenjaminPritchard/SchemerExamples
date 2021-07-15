@@ -1,0 +1,25 @@
+<html>
+
+<meta charset="UTF-8">
+
+<script>
+
+const getFile = async () => {
+  const url = "http://localhost:8080/get-schema/";
+  let result = await fetch(url);
+  let r = await result.blob();
+  return r;
+}
+    
+result = getFile().then(function(val1) {
+    val1.arrayBuffer().then (function(val2) {
+        const view = new Int8Array(val2);
+        console.log(view)
+    })
+});
+
+</script>
+
+<body>
+</body>
+</html>
